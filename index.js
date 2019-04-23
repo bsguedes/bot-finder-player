@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
 
 let args = process.argv.slice(2);
 const port = args[0];
@@ -58,7 +59,7 @@ app.get('/players/:playerName/radio', (req, res) => {
 
 app.post('/players/:playerName/radio', (req, res) => {
     console.log('got post radio');
-    console.log(req.content);
+    console.log(req.body);
     return res.send('nil');
 });
 
