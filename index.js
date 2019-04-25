@@ -21,9 +21,9 @@ app.get('/players/name', (req, res) => {
     );
 });
 
-app.put('/players/:playerName/move', (req, res) => {
+app.put('/players/:playerName/move', (req, res) => {    
     let response = '';
-    if (getRandomInt(10) === 0) {
+    if (getRandomInt(8 + getRandomInt(8)) === 0 || req.header('Valid-Last-Move') === 'False') {
         prev_dir = -1;
     }
     if (prev_dir === -1) {
