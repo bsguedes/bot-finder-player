@@ -32,14 +32,15 @@ app.put('/players/:playerName/move', (req, res) => {
         direction = prev_dir;
     }
     prev_dir = direction;
+    
     if (direction === 0){
-        response = 'north';
-    } else if (direction === 1){
         response = 'east';
+    } else if (direction === 1){
+        response = 'south';
     } else if (direction === 2){
         response = 'west';
     } else {
-        response = 'south';
+        response = 'north';
     }
     return res.json(
         {
